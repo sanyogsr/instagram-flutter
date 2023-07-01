@@ -27,7 +27,7 @@ class TextFieldInput extends StatelessWidget {
           errorBorder: InputBorder,
           hintText: hintText,
           filled: true,
-          contentPadding: EdgeInsets.all(8)),
+          contentPadding: const EdgeInsets.all(8)),
     );
   }
 }
