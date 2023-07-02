@@ -3,15 +3,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/providers/user_provider.dart';
-// import 'package:flutter/services.dart';
 import 'package:instagram/responnsive/mobile_screen_Layout.dart';
 import 'package:instagram/responnsive/responsive_layout_screen.dart';
 import 'package:instagram/responnsive/web_screen_layout.dart';
 import 'package:instagram/screens/login_screen.dart';
-// import 'package:instagram/screens/signup_screen.dart';
 import 'package:instagram/utils/colors.dart';
 import 'package:provider/provider.dart';
-// import 'package:instagram/utils/dimensions.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

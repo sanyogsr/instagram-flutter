@@ -1,14 +1,18 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:instagram/screens/add_post.dart';
 import 'package:instagram/screens/feed_screen.dart';
-import 'package:instagram/screens/login_screen.dart';
 import 'package:instagram/screens/logout.dart';
+import 'package:instagram/screens/profile_screen.dart';
+import 'package:instagram/screens/search_screen.dart';
 
-const homeScreenItems = [
+List<StatefulWidget> homeScreenItems = [
   FeedScreen(),
-  Logout(),
+  SearchScreen(),
   AddPost(),
-  Text('page '),
-  Text('bhai'),
-  // LoginScreen()
+  Logout(),
+  ProfileScreen(
+    uid: FirebaseAuth.instance.currentUser!.uid,
+  )
 ];

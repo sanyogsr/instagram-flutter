@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/models/user.dart';
 import 'package:instagram/providers/user_provider.dart';
@@ -65,6 +66,9 @@ class _CommentScreenState extends State<CommentScreen> {
                   _commentController.text,
                   user.photoUrl,
                 );
+                setState(() {
+                  _commentController.text = "";
+                });
               },
               child: Container(
                 child: Text(
@@ -78,7 +82,28 @@ class _CommentScreenState extends State<CommentScreen> {
           ],
         ),
       )),
-      body: CommentCard(),
+      body: StreamBuilder(
+        stream: FirebaseFirestore.instance
+            .collection("posts")
+            .doc(widget.snap['postId'])
+            .collection('comments')
+            .orderBy("datePublished", descending: true)
+            .snapshots(), 
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ListView.builder(
+              physics: AlwaysScrollableScrollPhysics(
+                  parent: BouncingScrollPhysics()),
+              itemCount: (snapshot.data! as dynamic).docs.length,
+              itemBuilder: (context, index) => CommentCard(
+                    snap: (snapshot.data! as dynamic).docs[index].data(),
+                  ));
+        },
+      ),
     );
   }
 }

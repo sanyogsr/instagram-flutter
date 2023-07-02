@@ -30,16 +30,14 @@ class _FeedScreenState extends State<FeedScreen> {
           builder: (context,
               AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator();
+              return Center(child: CircularProgressIndicator());
             }
             return ListView.builder(
                 physics: AlwaysScrollableScrollPhysics(
                     parent: BouncingScrollPhysics()),
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
-                  return PostCard(
-                    snap: snapshot.data!.docs[index].data()
-                  );
+                  return PostCard(snap: snapshot.data!.docs[index].data());
                 });
           }),
     );

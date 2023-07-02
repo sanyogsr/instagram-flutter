@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/providers/user_provider.dart';
+// import 'package:instagram/providers/user_provider.dart';
 import 'package:instagram/utils/colors.dart';
 import 'package:instagram/utils/global_variables.dart';
-import 'package:provider/provider.dart';
-import 'package:instagram/models/user.dart' as model;
+// import 'package:provider/provider.dart';
+// import 'package:instagram/models/user.dart' as model;
+// import 'dart:js_interop';
 
 class MobileScreenLayout extends StatefulWidget {
   const MobileScreenLayout({Key? key}) : super(key: key);
