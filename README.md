@@ -14,3 +14,5 @@ so today I come up with a new project "Instagran" clone.
 * unfollow an user
 * search an user
 * log out from app
+
+* video link  https://www.linkedin.com/posts/sanyogsr_instagram-flutter-flutterdeveloper-activity-7084716751036321792-axLE?utm_source=share&utm_medium=member_desktop
